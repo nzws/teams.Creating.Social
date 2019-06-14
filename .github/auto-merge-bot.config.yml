@@ -1,0 +1,5 @@
+merge_type: squash
+delete_branch: delete
+labels:
+  - [Dependencies 📦, minor]
+  - [Dependencies 📦, patch]

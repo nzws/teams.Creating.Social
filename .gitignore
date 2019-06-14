@@ -75,5 +75,9 @@ Thumbs.db
 .env
 
 /vendor/
-/logs/*
-!/logs/README.md
+
+/log/*
+!/log/.keep
+
+/public/bundle/*
+!/public/bundle/.keep

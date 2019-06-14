@@ -1,0 +1,51 @@
+{
+  "name": "teams.creating.social",
+  "description": "A open-source team collaboration service for creators",
+  "repository": "https://yuzulabo@github.com/yuzulabo/teams.Creating.Social.git",
+  "author": "nzws <git@nzws.me>",
+  "license": "AGPL-3.0",
+  "private": true,
+  "scripts": {
+    "lint:md": "prettier --check --ignore-path ./.gitignore \"**/*.md\"",
+    "lint:json": "prettier --check --ignore-path ./.gitignore \"**/*.json\"",
+    "lint:css": "stylelint **/*.scss && prettier --check --ignore-path ./.gitignore \"**/*.scss\"",
+    "lint:js": "eslint --ignore-path ./.gitignore \"**/*.js\" && prettier --check --ignore-path ./.gitignore \"**/*.js\"",
+    "lint:php": "composer php-cs-fixer fix -- --dry-run --verbose",
+    "lint": "npm-run-all lint:* -s",
+    "fmt:md": "prettier --write --ignore-path ./.gitignore \"**/*.md\"",
+    "fmt:json": "prettier --write --ignore-path ./.gitignore \"**/*.json\"",
+    "fmt:css": "stylelint --fix --ignore-path ./.gitignore **/*.scss && prettier --write --ignore-path ./.gitignore \"**/*.scss\"",
+    "fmt:js": "eslint --fix --ignore-path ./.gitignore \"**/*.js\" && prettier --write --ignore-path ./.gitignore \"**/*.js\"",
+    "fmt:php": "composer php-cs-fixer fix",
+    "fmt": "npm-run-all fmt:* -s",
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "yarn dev -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "start": "composer start",
+    "db:migrate": "composer phpmig migrate"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "turbolinks": "^5.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "laravel-mix": "^4.0.16",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "resolve-url-loader": "2.3.1",
+    "sass": "^1.21.0",
+    "sass-loader": "7.*",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.8.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

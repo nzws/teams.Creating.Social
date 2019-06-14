@@ -34,7 +34,6 @@
   "scripts": {
     "start": "php -S localhost:4000 -t public",
     "test": "phpunit",
-    "fmt": "php-cs-fixer fix",
     "phpmig": "phpmig",
     "php-cs-fixer": "php-cs-fixer"
   }

@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:latest-node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - composer-v1-{{ checksum "composer.lock" }}
+            - composer-v1-
+      - run:
+          name: Install php dependencies
+          command: composer install -n --prefer-dist
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "yarn.lock" }}
+            - node-v1-
+      - run:
+          name: Install node dependencies
+          command: yarn --frozen-lockfile
+      - save_cache:
+          key: node-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: Run lint
+          command: yarn lint
+      - run:
+          name: Run audit
+          command: yarn audit
+      - run:
+          name: Build assets
+          command: yarn build

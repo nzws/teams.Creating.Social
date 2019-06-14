@@ -12,6 +12,6 @@ return function (App $app) {
         $container->get('logger')->info('Slim-Skeleton \'/\' route');
 
         // Render index view
-        return $container->get('renderer')->render($response, 'index.phtml', ["name" => "かんざき"]);
+        return $container->get('renderer')->render($response, 'index.phtml', ['name' => 'かんざき']);
     });
 };
