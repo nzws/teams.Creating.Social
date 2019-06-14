@@ -79,5 +79,4 @@ Thumbs.db
 /log/*
 !/log/.keep
 
-/public/bundle/*
-!/public/bundle/.keep
+/public/bundle/

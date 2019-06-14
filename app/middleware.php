@@ -1,7 +1,8 @@
 <?php
 
 use Slim\App;
+use Slim\Csrf\Guard;
 
 return function (App $app) {
-    // e.g: $app->add(new \Slim\Csrf\Guard);
+    $app->add(new Guard);
 };

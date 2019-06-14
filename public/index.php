@@ -1,5 +1,6 @@
 <?php
 if (PHP_SAPI == 'cli-server') {
+    ini_set('display_errors', 1);
     // To help the built-in PHP dev server, check if the request was actually for
     // something which should probably be served as a static file
     $url = parse_url($_SERVER['REQUEST_URI']);
@@ -10,6 +11,9 @@ if (PHP_SAPI == 'cli-server') {
 }
 
 require __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
+$dotenv->load();
 
 session_start();
 

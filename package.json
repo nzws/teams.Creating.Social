@@ -18,10 +18,8 @@
     "fmt:js": "eslint --fix --ignore-path ./.gitignore \"**/*.js\" && prettier --write --ignore-path ./.gitignore \"**/*.js\"",
     "fmt:php": "composer php-cs-fixer fix",
     "fmt": "npm-run-all fmt:* -s",
-    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "yarn dev -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "build": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development webpack --watch",
+    "build": "NODE_ENV=production webpack",
     "start": "composer start",
     "db:migrate": "composer phpmig migrate"
   },
@@ -33,19 +31,27 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "cross-env": "^5.2.0",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "autoprefixer": "^9.6.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.0.0",
+    "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
-    "laravel-mix": "^4.0.16",
+    "file-loader": "^4.0.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
     "npm-run-all": "^4.1.5",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.18.2",
-    "resolve-url-loader": "2.3.1",
-    "sass": "^1.21.0",
-    "sass-loader": "7.*",
+    "sass-loader": "^7.1.0",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-scss": "^3.8.0",
-    "vue-template-compiler": "^2.6.10"
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
   }
 }

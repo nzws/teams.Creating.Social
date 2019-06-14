@@ -1,13 +1,17 @@
 <?php
+
+use Dotenv\Dotenv;
 use Phpmig\Adapter;
 use Pimple\Container;
 
 $container = new Container();
 
 $container['db'] = function () {
-    // todo: require_once __DIR__ . '/config.php';
-    $mysql = "mysql:dbname={$env['database']['db']};host={$env['database']['host']};port={$env['database']['port']}";
-    $dbh = new PDO($mysql, $env['database']['user'], $env['database']['pass']);
+    $dotenv = Dotenv::create(__DIR__);
+    $dotenv->load();
+
+    $mysql = "mysql:dbname={$_ENV['DB_NAME']};host={$_ENV['DB_HOST']};port={$_ENV['DB_PORT']}";
+    $dbh = new PDO($mysql, $_ENV['DB_USER'], $_ENV['DB_PASS']);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $dbh;
 };
