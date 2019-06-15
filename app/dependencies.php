@@ -1,10 +1,14 @@
 <?php
 
+use App\Lib\ViewExtension;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Monolog\Processor\UidProcessor;
 use Slim\App;
-use Slim\Views\PhpRenderer;
+use Slim\Http\Environment;
+use Slim\Http\Uri;
+use Slim\Views\Twig;
+use Slim\Views\TwigExtension;
 
 return function (App $app) {
     $container = $app->getContainer();
@@ -12,7 +16,14 @@ return function (App $app) {
     // view renderer
     $container['renderer'] = function ($c) {
         $settings = $c->get('settings')['renderer'];
-        return new PhpRenderer($settings['template_path']);
+
+        $view = new Twig($settings['template_path']);
+        $router = $c->get('router');
+        $uri = Uri::createFromEnvironment(new Environment($_SERVER));
+        $view->addExtension(new TwigExtension($router, $uri));
+        $view->addExtension(new ViewExtension($c));
+
+        return $view;
     };
 
     // monolog

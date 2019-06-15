@@ -1,9 +1,16 @@
 <?php
 
 use Monolog\Logger;
+use App\Lib\Locale;
 
 return [
     'settings' => [
+        'version' => '0.0.1',
+        'language' => Locale::getBrowserLanguage(),
+        'discord_link' => 'https://discord.gg/discord-developers',
+        'github_link' => 'https://github.com/yuzulabo/teams.Creating.Social',
+        'help_link' => 'https://help-teams.creating.social/',
+
         'displayErrorDetails' => getenv('IS_DEBUG'),
         'addContentLengthHeader' => false, // Allow the web server to send the content-length header
 
