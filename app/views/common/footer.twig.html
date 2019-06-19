@@ -1,4 +1,12 @@
 <footer class="container mt-4 mb-4 text-muted">
-    <hr>
-    <a href="/" target="_blank">Creating.Social Teams</a> Project <small>(Running v{{ settings.version }})</small>
+  <hr>
+  <ul class="footer_links">
+    <li><a href="/terms" target="_blank">{{ i('gavel') }} {{ t('common.footer.terms') }}</a></li>
+    <li><a href="{{ settings.status_link }}" target="_blank">{{ i('heartbeat') }} {{ t('common.footer.status') }}</a></li>
+    <li><a href="{{ settings.help_link }}" target="_blank">{{ i('question-circle') }} {{ t('common.footer.help') }}</a></li>
+    <li><a href="{{ settings.help_link }}" target="_blank">{{ i('discord', 'b') }} {{ t('common.footer.support') }}</a></li>
+  </ul>
+  <p>
+    <b><a href="/" target="_blank">Creating.Social Teams</a> Project <small>(Running v{{ settings.version }})</small></b>
+  </p>
 </footer>

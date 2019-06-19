@@ -2,34 +2,24 @@
 <html lang="{{ settings.language }}">
 
 <head>
-  {% include 'common/header.twig.html' %}
   <title>{{ t('common.title') }}: {{ t('common.description') }}</title>
+{% include 'common/header.twig.html' %}
 </head>
 
 <body class="page__about">
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="/">{{ t('common.title') }} <small class="ml-1">(Alpha)</small></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbar">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{{ settings.help_link }}" target="_blank">Help {{ i('question-circle') }}</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ settings.discord_link }}" target="_blank">Support {{ i('discord', 'b') }}</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ settings.github_link }}" target="_blank">Source {{ i('github', 'b') }}</a>
-      </li>
-      <li class="nav-item ml-lg-2">
-        <a class="btn btn-outline-warning" href="auth/login">{{ t('index.login-to-team') }}</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+{% embed 'common/navbar_not_login.twig.html' %}
+  {% block navbar_nav_left %}
+    <li class="nav-item">
+      <a class="nav-link" href="#features">{{ t('about.navbar.features') }}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#pricing">{{ t('about.navbar.pricing') }}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#getting-started">{{ t('about.navbar.getting-started') }}</a>
+    </li>
+  {% endblock %}
+{% endembed %}
 
 <div class="header jumbotron jumbotron-fluid text-center">
   <div class="container">
@@ -38,39 +28,37 @@
   </div>
 </div>
 
-<div class="container text-center">
-  <h1>無料で使える便利なアプリ</h1>
+<div class="container mt-4 text-center" id="features">
+  <h1>{{ t('about.features.title') }}</h1>
   <p>
-    チーム作業で役に立つ様々なアプリが全て無料でご利用頂けます。
+    {{ t('about.features.desc') }}
   </p>
   <p>
     ほげぴよ(あとで作る)
   </p>
 </div>
 
-<div class="container mt-4 text-center">
+<div class="container mt-4 text-center" id="pricing">
   <hr>
-  <h4>なぜ無料で利用できるのですか？</h4>
-  私たちは利益を目的としない有志のグループで、また全てのソースコード(プログラム)を公開しています。<br>
-  正式版となった場合でも基本機能を有償化する予定はありません。
+  <h1>{{ t('about.pricing.title') }}</h1>
+  <p>
+    {{ t('about.pricing.body') }}
+  </p>
 </div>
 
-<div class="container mt-4 text-center">
+<div class="container mt-4 text-center" id="getting-started">
   <hr>
-  <h1>今すぐ始める</h1>
-  <a href="auth/register" class="btn btn-lg btn-primary mt-2">アカウントを作成</a>
+  <h1>{{ t('about.getting-started.title') }}</h1>
+  <a href="/auth/create_team" class="btn btn-lg btn-primary mt-2">{{ t('about.getting-started.create-team') }}</a>
   <p class="mt-2">
-    アカウントをお持ちですか？<a href="auth/login">ログインする</a>
+    {{ t('about.getting-started.have-an-account') }}<a href="/auth/login" class="ml-1">{{ t('about.getting-started.login') }}</a>
   <p>
 
     <div class="alert alert-warning mt-4" role="alert">
-      <h4 class="alert-heading">{{ i('exclamation-triangle') }} Alpha版の為、動作が不安定な場合があります。</h4>
-      <p>
-        不具合・機能要望などは
-        <a href="{{ settings.github_link }}/issues/new" target="_blank">Issueを作成</a>
-        するか、
-        <a href="{{ settings.discord_link }}" target="_blank">{{ i('discord', 'b') }} 公式Discordサーバ</a>
-        で私たちにコンタクトを取ってもらえると嬉しいです。<br>
+      <h4 class="alert-heading">{{ i('exclamation-triangle') }} {{ t('about.alpha-version-is-unstable.title') }}</h4>
+      <p class="mt-1 mb-0">
+        {{ t('about.alpha-version-is-unstable.body') }}<br>
+        <a href="{{ settings.discord_link }}" target="_blank">{{ i('discord', 'b') }} Official Discord Server</a>
       </p>
     </div>
 </div>

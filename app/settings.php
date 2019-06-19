@@ -10,6 +10,12 @@ return [
         'discord_link' => 'https://discord.gg/discord-developers',
         'github_link' => 'https://github.com/yuzulabo/teams.Creating.Social',
         'help_link' => 'https://help-teams.creating.social/',
+        'status_link' => 'https://status.creating.social/',
+
+        'recaptcha' => [
+            'key' => $_ENV['RECAPTCHA_KEY'],
+            'secret' => $_ENV['RECAPTCHA_SECRET']
+        ],
 
         'displayErrorDetails' => getenv('IS_DEBUG'),
         'addContentLengthHeader' => false, // Allow the web server to send the content-length header

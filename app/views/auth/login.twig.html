@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ settings.language }}">
+
+<head>
+  <title>{{ t('auth/login.title') }} - {{ t('common.title') }}</title>
+{% include 'common/header.twig.html' %}
+</head>
+
+<body class="page__login">
+{% embed 'common/navbar_not_login.twig.html' %}
+{% endembed %}
+
+<div class="row justify-content-center w-100 mt-nav">
+  <div class="col-xl-3 col-md-6 text-center">
+    <h2 class="mb-4">{{ t('auth/login.title') }}</h2>
+    <p class="text-muted">
+      {{ t('auth/login.select_account') }}
+    </p>
+    <a href="/auth/twitter" class="btn btn-lg btn-block btn-info mt-2 mb-2">{{ i('twitter', 'b') }} Twitter</a>
+    <a href="/auth/google" class="btn btn-lg btn-block btn-danger mt-2 mb-2">{{ i('google', 'b') }} Google</a>
+    <a href="/auth/discord" class="btn btn-lg btn-block btn-dark mt-2 mb-2">{{ i('discord', 'b') }} Discord</a>
+    <p class="mt-2">
+      <small>{{ t('auth/login.terms') }}</small>
+    </p>
+    <hr>
+    <p class="mt-2">
+      {{ t('auth/login.email.title') }}:<br>
+      <a href="/auth/email">{{ t('auth/login.email.link') }}</a>
+    </p>
+    <p class="mt-2">
+      {{ t('auth/login.private.title') }}:<br>
+      <a href="/auth/private">{{ t('auth/login.private.login') }}</a>
+    </p>
+  </div>
+</div>
+
+{% include 'common/footer.twig.html' %}
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-not-login">
+  <a class="navbar-brand" href="/">
+    {{ t('common.title') }}
+    <small class="ml-1">(Alpha)</small>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+      {% block navbar_nav_left %}{% endblock %}
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ settings.help_link }}" target="_blank">{{ i('question-circle') }} Help</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ settings.discord_link }}" target="_blank">{{ i('discord', 'b') }} Support</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ settings.github_link }}" target="_blank">{{ i('github', 'b') }} Source</a>
+      </li>
+      <li class="nav-item ml-lg-2">
+        <a class="btn btn-outline-warning" href="/auth/login">{{ t('about.navbar.login-to-team') }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

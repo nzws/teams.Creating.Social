@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ settings.language }}">
+
+<head>
+  <title>Error{{ errorStatus }} - {{ t('common.title') }}</title>
+  {% include 'common/header.twig.html' %}
+</head>
+
+<body class="page__error">
+
+<div class="container mt-4 mb-4">
+  <h1>Error{{ errorStatus }}</h1>
+  {% if (errorReason) %}
+    <b>{{ t('error.' ~ errorReason) }}</b>
+  {% else %}
+    <b>{{ t('error.' ~ errorStatus) }}</b>
+  {% endif %}
+
+  <p class="mt-2">
+    <a href="/">{{ t('error.page.top') }}</a> {{ t('error.page.or') }} <a href="javascript:window.history.back(-1)">{{ t('error.page.back') }}</a>
+  </p>
+</div>
+
+{% include 'common/footer.twig.html' %}
+</body>
+
+</html>

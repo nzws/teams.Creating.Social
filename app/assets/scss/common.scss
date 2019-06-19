@@ -1,3 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+1p&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.9.0/css/fontawesome.css');
+@import url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.9.0/css/solid.css');
+@import url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.9.0/css/brands.css');
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'M PLUS 1p', sans-serif;
+  @extend .bg-light;
+}
+
+.btn {
+  @extend .shadow;
+}
+
+.navbar-not-login {
+  background: rgba($black, 0.5);
+}
+
+.mt-nav {
+  padding-top: 40px + 40px;
+}
+
+.footer_links {
+  padding: 0;
+
+  li {
+    display: inline;
+    margin-right: 10px;
+  }
+}
+
+.g-recaptcha {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
 }
